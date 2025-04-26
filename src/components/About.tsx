@@ -34,7 +34,7 @@ export default function About() {
                 私たちについて
               </div>
               <h2 className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                革新的なソリューションで、<br />ビジネスの未来を創造する
+                革新的なAIソリューションで、<br />ファッションの未来を変える
               </h2>
               <p className="mt-4 text-lg text-gray-500">
                 私たちは、常に最先端の技術と創造的なアイデアを組み合わせ、お客様のビジネス課題を解決するソリューションを提供しています。2010年の創業以来、多くの企業様とともに成長を続け、業界をリードする存在へと発展してきました。

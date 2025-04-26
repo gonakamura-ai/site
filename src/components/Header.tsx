@@ -26,7 +26,9 @@ export default function Header() {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className={`text-2xl font-serif tracking-wider ${scrolled ? 'text-secondary' : 'text-white'}`}>FASHION TECH</span>
+              <span className="text-2xl font-bold text-gray-900">COLOSOM</span>
+              <span className="ml-2 text-2xl font-bold text-indigo-600">DEMO</span>
+              <span className="ml-2 text-2xl font-bold text-indigo-600">SOLUTIONS</span>
             </Link>
           </div>
           
