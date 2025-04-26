@@ -26,14 +26,15 @@ export default function Header() {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold tracking-wider text-gray-900">COLOSOM</span>
+              <span className="text-2xl font-bold tracking-wider text-gray-900">colosom</span>
             </Link>
           </div>
           
           {/* Desktop menu */}
           <nav className="hidden md:flex md:space-x-8">
             <Link 
-              href="#demo" 
+              href="https://wwfc.vercel.app/" 
+              target="_blank"
               className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
             >
               DEMO
@@ -90,7 +91,8 @@ export default function Header() {
         <div className="md:hidden absolute w-full bg-white/95 backdrop-blur-md shadow-md">
           <div className="pt-2 pb-3 space-y-1 px-4">
             <Link 
-              href="#demo" 
+              href="https://wwfc.vercel.app/" 
+              target="_blank"
               className="block py-2 text-sm font-medium text-secondary hover:text-primary tracking-wide border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
