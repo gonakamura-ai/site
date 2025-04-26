@@ -52,7 +52,7 @@ export default function Contact() {
         <div className="relative bg-white shadow-xl rounded-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Left side contact information */}
-            <div className="relative overflow-hidden rounded-tl-2xl rounded-bl-2xl py-10 px-6 bg-gradient-to-br from-gray-100 to-gray-200 sm:px-10 xl:p-12">
+            <div className="relative overflow-hidden rounded-tl-2xl rounded-bl-2xl py-10 px-6 bg-gray-300 sm:px-10 xl:p-12">
               <div className="absolute inset-0 pointer-events-none">
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
                   <defs>
@@ -210,7 +210,7 @@ export default function Contact() {
                       type="submit"
                       disabled={isSubmitting}
                       className={`w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white ${
-                        isSubmitting ? 'bg-gray-400' : 'bg-gray-600 hover:bg-gray-700'
+                        isSubmitting ? 'bg-gray-400' : 'bg-gray-300 hover:bg-gray-400'
                       } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500`}
                     >
                       {isSubmitting ? (
