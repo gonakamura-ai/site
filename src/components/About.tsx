@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 export default function About() {
   return (
     <section id="about" className="py-24 bg-white overflow-hidden">

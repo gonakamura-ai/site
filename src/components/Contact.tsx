@@ -43,7 +43,7 @@ export default function Contact() {
       });
       
       setSubmitted(true);
-    } catch (err) {
+    } catch {
       setError('送信中にエラーが発生しました。お手数ですが、再度お試しください。');
     } finally {
       setIsSubmitting(false);
