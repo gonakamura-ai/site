@@ -1,35 +1,61 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className={`fixed w-full transition-all duration-300 z-50 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-indigo-600">colosom</span>
+              <span className={`text-2xl font-serif tracking-wider ${scrolled ? 'text-secondary' : 'text-white'}`}>FASHION TECH</span>
             </Link>
           </div>
           
           {/* Desktop menu */}
-          <nav className="hidden md:ml-6 md:flex md:space-x-8">
-            <Link href="#features" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-indigo-600 border-b-2 border-transparent hover:border-indigo-600">
-              特徴
+          <nav className="hidden md:flex md:space-x-8">
+            <Link 
+              href="#solutions" 
+              className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
+            >
+              SOLUTIONS
             </Link>
-            <Link href="#about" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-indigo-600 border-b-2 border-transparent hover:border-indigo-600">
-              会社概要
+            <Link 
+              href="#about" 
+              className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
+            >
+              ABOUT
             </Link>
-            <Link href="#services" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-indigo-600 border-b-2 border-transparent hover:border-indigo-600">
-              サービス
+            <Link 
+              href="#cases" 
+              className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
+            >
+              CASE STUDIES
             </Link>
-            <Link href="#contact" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-indigo-600 border-b-2 border-transparent hover:border-indigo-600">
-              お問い合わせ
+            <Link 
+              href="#contact" 
+              className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
+            >
+              CONTACT
             </Link>
           </nav>
 
@@ -37,7 +63,7 @@ export default function Header() {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className={`inline-flex items-center justify-center p-2 rounded-md ${scrolled ? 'text-secondary' : 'text-white'} hover:text-primary focus:outline-none`}
             >
               <span className="sr-only">メニューを開く</span>
               {isMenuOpen ? (
@@ -56,19 +82,35 @@ export default function Header() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="pt-2 pb-3 space-y-1">
-            <Link href="#features" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
-              特徴
+        <div className="md:hidden absolute w-full bg-white/95 backdrop-blur-md shadow-md">
+          <div className="pt-2 pb-3 space-y-1 px-4">
+            <Link 
+              href="#solutions" 
+              className="block py-2 text-sm font-medium text-secondary hover:text-primary tracking-wide border-b border-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              SOLUTIONS
             </Link>
-            <Link href="#about" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
-              会社概要
+            <Link 
+              href="#about" 
+              className="block py-2 text-sm font-medium text-secondary hover:text-primary tracking-wide border-b border-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              ABOUT
             </Link>
-            <Link href="#services" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
-              サービス
+            <Link 
+              href="#cases" 
+              className="block py-2 text-sm font-medium text-secondary hover:text-primary tracking-wide border-b border-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              CASE STUDIES
             </Link>
-            <Link href="#contact" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
-              お問い合わせ
+            <Link 
+              href="#contact" 
+              className="block py-2 text-sm font-medium text-secondary hover:text-primary tracking-wide"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              CONTACT
             </Link>
           </div>
         </div>

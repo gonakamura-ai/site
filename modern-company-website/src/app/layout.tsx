@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
+const poppins = Poppins({ 
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ["latin"],
+  variable: '--font-poppins'
+});
 
 export const metadata: Metadata = {
-  title: "colosom - 革新的なソリューションで未来をデザインする",
-  description: "最先端のテクノロジーと創造的なアイデアで、お客様のビジネスに新たな価値を創造します。",
+  title: "FASHION TECH - ファッション×テクノロジーで業界の未来を創る",
+  description: "アパレル業界に特化したデジタルソリューションで、ファッションビジネスの変革と成長をサポートします。",
 };
 
 export default function RootLayout({
@@ -15,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja" className={`scroll-smooth ${playfair.variable} ${poppins.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

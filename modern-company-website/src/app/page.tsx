@@ -1,8 +1,8 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
+import Solutions from '@/components/Collections';
 import About from '@/components/About';
-import Services from '@/components/Services';
+import Cases from '@/components/Lookbook';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -11,9 +11,9 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <Features />
+      <Solutions />
       <About />
-      <Services />
+      <Cases />
       <Contact />
       <Footer />
     </main>
