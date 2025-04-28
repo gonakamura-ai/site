@@ -33,8 +33,7 @@ export default function Header() {
           {/* Desktop menu */}
           <nav className="hidden md:flex md:space-x-8">
             <Link 
-              href="https://wwfc.vercel.app/" 
-              target="_blank"
+              href="/onboarding" 
               className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
             >
               DEMO
@@ -91,8 +90,7 @@ export default function Header() {
         <div className="md:hidden absolute w-full bg-white/95 backdrop-blur-md shadow-md">
           <div className="pt-2 pb-3 space-y-1 px-4">
             <Link 
-              href="https://wwfc.vercel.app/" 
-              target="_blank"
+              href="/onboarding" 
               className="block py-2 text-sm font-medium text-secondary hover:text-primary tracking-wide border-b border-gray-100"
               onClick={() => setIsMenuOpen(false)}
             >
