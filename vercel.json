@@ -1,24 +1,8 @@
 {
   "version": 2,
-  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "github": {
     "silent": true
-  },
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "index, follow"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
-        }
-      ]
-    }
-  ],
-  "trailingSlash": false,
-  "cleanUrls": true
+  }
 } 

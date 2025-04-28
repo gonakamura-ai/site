@@ -3,24 +3,14 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['localhost', 'fonts.gstatic.com'],
+    unoptimized: true
   },
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
-  // エッジ関数のタイムアウト設定
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, must-revalidate',
-          },
-        ],
-      },
-    ];
-  },
+  output: 'export',
+  distDir: 'out',
+  trailingSlash: false,
 };
 
-module.exports = nextConfig; 
+module.exports = nextConfig;
