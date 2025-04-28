@@ -32,9 +32,8 @@ const Step5Content: React.FC<Step5ContentProps> = ({ onPrev, onFinish }) => {
       <div className="w-full max-w-md">
         {/* プログレスバー */}
         <div className="mb-8">
-          <div className="flex justify-between items-center">
-            <div className="text-xs text-gray-500">ステップ 5/5</div>
-            <div className="text-xs text-gray-500">通知設定</div>
+          <div className="flex items-center">
+            <div className="text-xs text-gray-500">5/5</div>
           </div>
           <div className="w-full bg-gray-200 h-2 rounded-full mt-2">
             <div className="bg-primary h-2 rounded-full" style={{ width: '100%' }}></div>
@@ -47,9 +46,9 @@ const Step5Content: React.FC<Step5ContentProps> = ({ onPrev, onFinish }) => {
           <p className="text-gray-600">受け取りたい通知を選択してください</p>
         </div>
 
-        {/* 通知設定 */}
+        {/* 通知設定 - Pinterestスタイル */}
         <div className="space-y-4 mb-8">
-          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-center justify-between p-5 bg-gray-50 rounded-xl shadow-sm transition-all hover:shadow">
             <div>
               <h3 className="font-medium text-gray-900">新着商品</h3>
               <p className="text-sm text-gray-500">新しい商品が入荷したときに通知</p>
@@ -65,7 +64,7 @@ const Step5Content: React.FC<Step5ContentProps> = ({ onPrev, onFinish }) => {
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-center justify-between p-5 bg-gray-50 rounded-xl shadow-sm transition-all hover:shadow">
             <div>
               <h3 className="font-medium text-gray-900">セール情報</h3>
               <p className="text-sm text-gray-500">セールやキャンペーンの通知</p>
@@ -81,7 +80,7 @@ const Step5Content: React.FC<Step5ContentProps> = ({ onPrev, onFinish }) => {
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-center justify-between p-5 bg-gray-50 rounded-xl shadow-sm transition-all hover:shadow">
             <div>
               <h3 className="font-medium text-gray-900">パーソナライズドレコメンド</h3>
               <p className="text-sm text-gray-500">あなたにおすすめの商品の通知</p>
@@ -97,7 +96,7 @@ const Step5Content: React.FC<Step5ContentProps> = ({ onPrev, onFinish }) => {
             </label>
           </div>
 
-          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-center justify-between p-5 bg-gray-50 rounded-xl shadow-sm transition-all hover:shadow">
             <div>
               <h3 className="font-medium text-gray-900">イベント</h3>
               <p className="text-sm text-gray-500">ポップアップやイベントの通知</p>
@@ -115,18 +114,18 @@ const Step5Content: React.FC<Step5ContentProps> = ({ onPrev, onFinish }) => {
         </div>
 
         {/* 操作ボタン */}
-        <div className="flex space-x-4 pt-4">
+        <div className="flex space-x-4 pt-6">
           <button
             type="button"
             onClick={onPrev}
-            className="w-1/2 flex items-center justify-center py-3 px-4 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors"
+            className="w-1/2 flex items-center justify-center py-3 px-4 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
           >
             戻る
           </button>
           <button
             type="button"
             onClick={handleComplete}
-            className="w-1/2 flex items-center justify-center py-3 px-4 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
+            className="w-1/2 flex items-center justify-center py-3 px-4 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors shadow-md"
           >
             設定完了
           </button>

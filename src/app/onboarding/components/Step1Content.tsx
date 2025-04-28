@@ -10,8 +10,15 @@ const Step1Content: React.FC<Step1ContentProps> = ({ onNext }) => {
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         {/* ロゴ */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">colosomへようこそ</h1>
+        <div className="text-center mb-12">
+          <div className="flex justify-center mb-6">
+            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-10 h-10">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z" />
+              </svg>
+            </div>
+          </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">colosomへようこそ</h1>
           <p className="text-gray-600">アカウントを作成して、すべての機能を活用しましょう</p>
         </div>
 
@@ -19,7 +26,7 @@ const Step1Content: React.FC<Step1ContentProps> = ({ onNext }) => {
         <div className="space-y-4">
           {/* メールアドレスでログイン */}
           <button 
-            className="w-full flex items-center justify-center py-3 px-4 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
+            className="w-full flex items-center justify-center py-3 px-4 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors shadow-md transform hover:scale-105 hover:shadow-lg transition-all"
             onClick={onNext}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -30,7 +37,7 @@ const Step1Content: React.FC<Step1ContentProps> = ({ onNext }) => {
 
           {/* Googleでログイン */}
           <button 
-            className="w-full flex items-center justify-center py-3 px-4 bg-white text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+            className="w-full flex items-center justify-center py-3 px-4 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shadow-sm transform hover:scale-105 hover:shadow-md transition-all"
             onClick={onNext}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 48 48">
@@ -44,7 +51,7 @@ const Step1Content: React.FC<Step1ContentProps> = ({ onNext }) => {
 
           {/* LINEでログイン */}
           <button 
-            className="w-full flex items-center justify-center py-3 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+            className="w-full flex items-center justify-center py-3 px-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors shadow-md transform hover:scale-105 hover:shadow-lg transition-all"
             onClick={onNext}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
@@ -55,7 +62,7 @@ const Step1Content: React.FC<Step1ContentProps> = ({ onNext }) => {
         </div>
 
         {/* 利用規約とプライバシーポリシー */}
-        <div className="mt-8 text-center text-sm text-gray-600">
+        <div className="mt-10 text-center text-sm text-gray-600">
           <p>
             続行することで、<Link href="#" className="text-primary underline">利用規約</Link>および
             <Link href="#" className="text-primary underline">プライバシーポリシー</Link>に同意したことになります。
