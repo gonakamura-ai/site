@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 
 interface Step1ContentProps {
   onNext: () => void;
@@ -7,67 +6,77 @@ interface Step1ContentProps {
 
 const Step1Content: React.FC<Step1ContentProps> = ({ onNext }) => {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-gradient-to-br from-blue-50 to-indigo-50">
       <div className="w-full max-w-md">
         {/* ロゴ */}
         <div className="text-center mb-12">
-          <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-10 h-10">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z" />
+          <div className="flex justify-center mb-8">
+            <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-12 h-12">
+                <path d="M13 7.5a1 1 0 11-2 0 1 1 0 012 0zm2 3.5c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1s.45-1 1-1h3c.55 0 1 .45 1 1zm-8-3.5a1 1 0 11-2 0 1 1 0 012 0zm-2 3.5c0-.55.45-1 1-1h3c.55 0 1 .45 1 1s-.45 1-1 1H6c-.55 0-1-.45-1-1z" />
+                <path d="M12 5a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z" />
               </svg>
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">colosomへようこそ</h1>
-          <p className="text-gray-600">アカウントを作成して、すべての機能を活用しましょう</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">colosom</h1>
+          <p className="text-gray-600 mb-2">あなたのファッションライフをもっと楽しく</p>
         </div>
 
-        {/* ログインオプション */}
-        <div className="space-y-4">
-          {/* メールアドレスでログイン */}
-          <button 
-            className="w-full flex items-center justify-center py-3 px-4 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors shadow-md transform hover:scale-105 hover:shadow-lg transition-all"
-            onClick={onNext}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            メールアドレスで続行
-          </button>
+        {/* サービスの特徴 */}
+        <div className="space-y-6 mb-10">
+          <div className="bg-white rounded-xl p-5 shadow-md transform transition-all hover:scale-105">
+            <div className="flex items-start">
+              <div className="bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">パーソナライズされたおすすめ</h3>
+                <p className="text-gray-600 text-sm">あなたの好みを学習し、ぴったりのファッションアイテムを提案</p>
+              </div>
+            </div>
+          </div>
 
-          {/* Googleでログイン */}
-          <button 
-            className="w-full flex items-center justify-center py-3 px-4 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shadow-sm transform hover:scale-105 hover:shadow-md transition-all"
-            onClick={onNext}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 48 48">
-              <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
-              <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" />
-              <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" />
-              <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z" />
-            </svg>
-            Googleで続ける
-          </button>
+          <div className="bg-white rounded-xl p-5 shadow-md transform transition-all hover:scale-105">
+            <div className="flex items-start">
+              <div className="bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">トレンド情報をいち早く</h3>
+                <p className="text-gray-600 text-sm">最新のトレンドをリアルタイムでチェックできる情報配信</p>
+              </div>
+            </div>
+          </div>
 
-          {/* LINEでログイン */}
-          <button 
-            className="w-full flex items-center justify-center py-3 px-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors shadow-md transform hover:scale-105 hover:shadow-lg transition-all"
-            onClick={onNext}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path>
-            </svg>
-            LINEで続ける
-          </button>
+          <div className="bg-white rounded-xl p-5 shadow-md transform transition-all hover:scale-105">
+            <div className="flex items-start">
+              <div className="bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">コミュニティとつながる</h3>
+                <p className="text-gray-600 text-sm">ファッション好きなユーザーとアイデアや情報を共有</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* 利用規約とプライバシーポリシー */}
-        <div className="mt-10 text-center text-sm text-gray-600">
-          <p>
-            続行することで、<Link href="#" className="text-primary underline">利用規約</Link>および
-            <Link href="#" className="text-primary underline">プライバシーポリシー</Link>に同意したことになります。
-          </p>
-        </div>
+        {/* 開始ボタン */}
+        <button 
+          className="w-full flex items-center justify-center py-4 px-4 bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors shadow-lg transform hover:scale-105 hover:shadow-xl"
+          onClick={onNext}
+        >
+          <span className="mr-2">さっそく始める</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </button>
       </div>
     </div>
   );
