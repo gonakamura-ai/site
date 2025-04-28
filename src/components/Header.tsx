@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import React from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // スクロール検出
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setScrolled(true);
@@ -16,9 +19,29 @@ export default function Header() {
       }
     };
 
+    // モバイルデバイス検出
+    const checkDevice = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobileDevice = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+      setIsMobile(isMobileDevice);
+    };
+
     window.addEventListener('scroll', handleScroll);
+    checkDevice(); // 初期ロード時にチェック
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleDemoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isMobile) {
+      // スマホの場合はオンボーディングへ
+      window.location.href = '/onboarding';
+    } else {
+      // PCの場合は従来通りwwfc.vercel.appへ
+      window.open('https://wwfc.vercel.app/', '_blank');
+    }
+    e.preventDefault();
+  };
 
   return (
     <header className={`fixed w-full transition-all duration-300 z-50 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
@@ -32,12 +55,13 @@ export default function Header() {
           
           {/* Desktop menu */}
           <nav className="hidden md:flex md:space-x-8">
-            <Link 
-              href="/onboarding" 
+            <a 
+              href="#" 
+              onClick={handleDemoClick}
               className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
             >
               DEMO
-            </Link>
+            </a>
             <Link 
               href="#solutions" 
               className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${scrolled ? 'text-secondary' : 'text-white'}`}
@@ -89,13 +113,16 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden absolute w-full bg-white/95 backdrop-blur-md shadow-md">
           <div className="pt-2 pb-3 space-y-1 px-4">
-            <Link 
-              href="/onboarding" 
+            <a
+              href="#"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                handleDemoClick(e);
+                setIsMenuOpen(false);
+              }}
               className="block py-2 text-sm font-medium text-secondary hover:text-primary tracking-wide border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
             >
               DEMO
-            </Link>
+            </a>
             <Link 
               href="#solutions" 
               className="block py-2 text-sm font-medium text-secondary hover:text-primary tracking-wide border-b border-gray-100"
