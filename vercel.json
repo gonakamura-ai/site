@@ -20,12 +20,5 @@
     }
   ],
   "trailingSlash": false,
-  "cleanUrls": true,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1",
-      "continue": true
-    }
-  ]
+  "cleanUrls": true
 } 
