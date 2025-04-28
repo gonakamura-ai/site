@@ -56,15 +56,6 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold text-white tracking-wider uppercase">サービス</h3>
                 <ul className="mt-4 space-y-4">
                   <li>
-                    <a href="#services" className="text-base text-gray-300 hover:text-white">Webサイト開発</a>
-                  </li>
-                  <li>
-                    <a href="#services" className="text-base text-gray-300 hover:text-white">モバイルアプリ開発</a>
-                  </li>
-                  <li>
-                    <a href="#services" className="text-base text-gray-300 hover:text-white">クラウドソリューション</a>
-                  </li>
-                  <li>
                     <a href="#services" className="text-base text-gray-300 hover:text-white">AI・データ分析</a>
                   </li>
                 </ul>
